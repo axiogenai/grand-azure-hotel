@@ -178,23 +178,23 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
     <section 
       id="about"
       style={{
-        padding: '0 1.5rem 5.5rem',
+        padding: '0 1.25rem 5.5rem',
         background: '#FAF9F5',
         position: 'relative'
       }}
     >
       <div className="container-luxury" style={{ maxWidth: '1180px' }}>
         
-        {/* 1. ELEVATED LUXURY CAPSULE CARD (2cm elevated, with Arrow Tab Counter) */}
+        {/* 1. ELEVATED LUXURY CAPSULE CARD (Mobile Responsive) */}
         <div 
           ref={cardContainerRef}
           style={{
             marginTop: '-50px',
-            marginBottom: '4rem',
+            marginBottom: '3.5rem',
             position: 'relative',
             zIndex: 35,
             maxWidth: '780px',
-            margin: '-50px auto 4rem'
+            margin: '-50px auto 3.5rem'
           }}
         >
           <div 
@@ -202,11 +202,11 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
               background: '#FFFFFF',
               border: '1.5px solid rgba(168, 124, 20, 0.45)',
               borderRadius: '9999px',
-              padding: '0.55rem 0.65rem 0.55rem 1.4rem',
+              padding: '0.5rem 0.65rem 0.5rem 1.1rem',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: '0.6rem',
+              justifyContent: 'center',
+              gap: '0.45rem',
               boxShadow: '0 22px 55px rgba(15, 23, 42, 0.13), 0 0 25px rgba(184, 138, 27, 0.12)',
               flexWrap: 'wrap',
               position: 'relative'
@@ -220,18 +220,19 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
                 border: openBox === 'date' ? '1.5px solid var(--gold-600)' : '1px solid rgba(168, 124, 20, 0.25)',
                 background: openBox === 'date' ? 'var(--gold-100)' : '#FAF8F5',
                 borderRadius: '9999px',
-                padding: '0.45rem 0.85rem',
-                fontSize: '0.84rem',
+                padding: '0.4rem 0.75rem',
+                fontSize: '0.8rem',
                 fontWeight: 700,
                 color: 'var(--gold-800)',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.4rem',
-                transition: 'all 0.15s ease'
+                gap: '0.35rem',
+                transition: 'all 0.15s ease',
+                flexShrink: 0
               }}
             >
-              <Calendar size={14} />
+              <Calendar size={13} />
               <span>{date}</span>
             </button>
 
@@ -243,18 +244,19 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
                 border: openBox === 'time' ? '1.5px solid var(--gold-600)' : '1px solid rgba(168, 124, 20, 0.25)',
                 background: openBox === 'time' ? 'var(--gold-100)' : '#FAF8F5',
                 borderRadius: '9999px',
-                padding: '0.45rem 0.85rem',
-                fontSize: '0.84rem',
+                padding: '0.4rem 0.75rem',
+                fontSize: '0.8rem',
                 fontWeight: 700,
                 color: 'var(--gold-800)',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.4rem',
-                transition: 'all 0.15s ease'
+                gap: '0.35rem',
+                transition: 'all 0.15s ease',
+                flexShrink: 0
               }}
             >
-              <Clock size={14} />
+              <Clock size={13} />
               <span>{time}</span>
             </button>
 
@@ -266,18 +268,19 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
                 border: openBox === 'guests' ? '1.5px solid var(--gold-600)' : '1px solid rgba(168, 124, 20, 0.25)',
                 background: openBox === 'guests' ? 'var(--gold-100)' : '#FAF8F5',
                 borderRadius: '9999px',
-                padding: '0.45rem 0.85rem',
-                fontSize: '0.84rem',
+                padding: '0.4rem 0.75rem',
+                fontSize: '0.8rem',
                 fontWeight: 700,
                 color: 'var(--gold-800)',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.4rem',
-                transition: 'all 0.15s ease'
+                gap: '0.35rem',
+                transition: 'all 0.15s ease',
+                flexShrink: 0
               }}
             >
-              <Users size={14} />
+              <Users size={13} />
               <span>{guests} {guests === 1 ? 'Guest' : 'Guests'}</span>
             </button>
 
@@ -289,15 +292,16 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
                 border: openBox === 'seating' ? '1.5px solid var(--gold-600)' : '1px solid rgba(168, 124, 20, 0.25)',
                 background: openBox === 'seating' ? 'var(--gold-100)' : '#FAF8F5',
                 borderRadius: '9999px',
-                padding: '0.45rem 0.85rem',
-                fontSize: '0.84rem',
+                padding: '0.4rem 0.75rem',
+                fontSize: '0.8rem',
                 fontWeight: 700,
                 color: 'var(--gold-800)',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.4rem',
-                transition: 'all 0.15s ease'
+                gap: '0.35rem',
+                transition: 'all 0.15s ease',
+                flexShrink: 0
               }}
             >
               <span>{seatingOptions.find(z => z.id === seatingZone)?.label}</span>
@@ -310,36 +314,40 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
               className="btn-gold"
               style={{ 
                 borderRadius: '9999px', 
-                padding: '0.55rem 1.4rem', 
-                fontSize: '0.86rem', 
+                padding: '0.48rem 1.25rem', 
+                fontSize: '0.82rem', 
                 display: 'flex', 
                 alignItems: 'center', 
-                gap: '0.4rem',
-                whiteSpace: 'nowrap'
+                gap: '0.35rem',
+                whiteSpace: 'nowrap',
+                flexShrink: 0
               }}
             >
               <span>Book</span>
-              <ArrowRight size={14} />
+              <ArrowRight size={13} />
             </button>
 
-            {/* VERY SHORT HORIZONTAL FLOATING MINI-BOX (With Arrow Tab Counter) */}
+            {/* VERY SHORT HORIZONTAL FLOATING MINI-BOX (Mobile Responsive Scroller) */}
             {openBox && (
               <div
+                className="no-scrollbar"
                 style={{
                   position: 'absolute',
-                  top: 'calc(100% + 9px)',
+                  top: 'calc(100% + 8px)',
                   left: '50%',
                   transform: 'translateX(-50%)',
                   background: '#FFFFFF',
                   border: '1.5px solid var(--gold-500)',
-                  borderRadius: '9999px',
-                  padding: '0.4rem 0.75rem',
+                  borderRadius: '1rem',
+                  padding: '0.4rem 0.65rem',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '0.45rem',
+                  gap: '0.35rem',
                   boxShadow: '0 12px 30px rgba(0,0,0,0.16), 0 0 18px rgba(184, 138, 27, 0.12)',
                   zIndex: 100,
                   animation: 'scaleUp 0.15s ease-out',
+                  maxWidth: 'calc(100vw - 2rem)',
+                  overflowX: 'auto',
                   whiteSpace: 'nowrap'
                 }}
               >
@@ -356,22 +364,28 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
                           background: date === dp.val ? 'var(--gold-100)' : '#FAF8F5',
                           color: date === dp.val ? 'var(--gold-800)' : 'var(--text-main)',
                           borderRadius: '9999px',
-                          padding: '0.35rem 0.75rem',
-                          fontSize: '0.76rem',
+                          padding: '0.32rem 0.7rem',
+                          fontSize: '0.74rem',
                           fontWeight: date === dp.val ? 800 : 600,
-                          cursor: 'pointer'
+                          cursor: 'pointer',
+                          flexShrink: 0
                         }}
                       >
                         {dp.label}
                       </button>
                     ))}
+                    <input 
+                      type="date"
+                      value={date}
+                      onChange={(e) => handleSelectOption(() => setDate(e.target.value))}
+                      style={{ border: 'none', background: 'transparent', fontSize: '0.74rem', fontWeight: 700, outline: 'none', cursor: 'pointer', marginLeft: '0.2rem' }}
+                    />
                   </>
                 )}
 
                 {/* 2. TIME BOX WITH ARROW TAB COUNTER & PRESETS */}
                 {openBox === 'time' && (
                   <>
-                    {/* Presets */}
                     {timePresets.map(slot => (
                       <button
                         key={slot}
@@ -389,21 +403,22 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
                           background: time === slot ? 'var(--gold-100)' : '#FAF8F5',
                           color: time === slot ? 'var(--gold-800)' : 'var(--text-main)',
                           borderRadius: '9999px',
-                          padding: '0.35rem 0.7rem',
-                          fontSize: '0.76rem',
+                          padding: '0.32rem 0.65rem',
+                          fontSize: '0.74rem',
                           fontWeight: time === slot ? 800 : 600,
-                          cursor: 'pointer'
+                          cursor: 'pointer',
+                          flexShrink: 0
                         }}
                       >
                         {slot}
                       </button>
                     ))}
 
-                    {/* BESPOKE ARROW TAB COUNTER (No Default Browser Time Popup!) */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', borderLeft: '1.5px solid rgba(168, 124, 20, 0.25)', paddingLeft: '0.5rem', marginLeft: '0.15rem' }}>
+                    {/* BESPOKE ARROW TAB COUNTER */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', borderLeft: '1.5px solid rgba(168, 124, 20, 0.25)', paddingLeft: '0.45rem', marginLeft: '0.15rem', flexShrink: 0 }}>
                       
                       {/* Hour Stepper */}
-                      <div style={{ display: 'flex', alignItems: 'center', background: '#FAF8F5', border: '1px solid rgba(168, 124, 20, 0.3)', borderRadius: '9999px', padding: '0.15rem 0.35rem' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', background: '#FAF8F5', border: '1px solid rgba(168, 124, 20, 0.3)', borderRadius: '9999px', padding: '0.12rem 0.3rem' }}>
                         <button
                           type="button"
                           onClick={() => stepHour(-1)}
@@ -411,7 +426,7 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
                         >
                           <ChevronLeft size={13} />
                         </button>
-                        <span style={{ fontSize: '0.76rem', fontWeight: 800, minWidth: '18px', textAlign: 'center', color: 'var(--text-main)' }}>
+                        <span style={{ fontSize: '0.74rem', fontWeight: 800, minWidth: '18px', textAlign: 'center', color: 'var(--text-main)' }}>
                           {customHour}
                         </span>
                         <button
@@ -423,10 +438,10 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
                         </button>
                       </div>
 
-                      <span style={{ fontWeight: 800, color: 'var(--gold-800)', fontSize: '0.78rem' }}>:</span>
+                      <span style={{ fontWeight: 800, color: 'var(--gold-800)', fontSize: '0.76rem' }}>:</span>
 
                       {/* Minute Stepper */}
-                      <div style={{ display: 'flex', alignItems: 'center', background: '#FAF8F5', border: '1px solid rgba(168, 124, 20, 0.3)', borderRadius: '9999px', padding: '0.15rem 0.35rem' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', background: '#FAF8F5', border: '1px solid rgba(168, 124, 20, 0.3)', borderRadius: '9999px', padding: '0.12rem 0.3rem' }}>
                         <button
                           type="button"
                           onClick={() => stepMinute(-15)}
@@ -434,7 +449,7 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
                         >
                           <ChevronLeft size={13} />
                         </button>
-                        <span style={{ fontSize: '0.76rem', fontWeight: 800, minWidth: '20px', textAlign: 'center', color: 'var(--text-main)' }}>
+                        <span style={{ fontSize: '0.74rem', fontWeight: 800, minWidth: '20px', textAlign: 'center', color: 'var(--text-main)' }}>
                           {customMin < 10 ? '0' : ''}{customMin}
                         </span>
                         <button
@@ -455,8 +470,8 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
                           background: 'var(--gold-100)',
                           color: 'var(--gold-800)',
                           borderRadius: '9999px',
-                          padding: '0.2rem 0.45rem',
-                          fontSize: '0.72rem',
+                          padding: '0.18rem 0.4rem',
+                          fontSize: '0.7rem',
                           fontWeight: 800,
                           cursor: 'pointer'
                         }}
@@ -479,11 +494,11 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
                           alignItems: 'center',
                           justifyContent: 'center',
                           cursor: 'pointer',
-                          marginLeft: '0.2rem'
+                          marginLeft: '0.15rem'
                         }}
                         title="Confirm time"
                       >
-                        <Check size={13} />
+                        <Check size={12} />
                       </button>
                     </div>
                   </>
@@ -502,10 +517,11 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
                           background: guests === g.value ? 'var(--gold-100)' : '#FAF8F5',
                           color: guests === g.value ? 'var(--gold-800)' : 'var(--text-main)',
                           borderRadius: '9999px',
-                          padding: '0.35rem 0.75rem',
-                          fontSize: '0.76rem',
+                          padding: '0.32rem 0.65rem',
+                          fontSize: '0.74rem',
                           fontWeight: guests === g.value ? 800 : 600,
-                          cursor: 'pointer'
+                          cursor: 'pointer',
+                          flexShrink: 0
                         }}
                       >
                         {g.label}
@@ -513,11 +529,11 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
                     ))}
 
                     {/* Custom Guest Stepper Option */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', borderLeft: '1.5px solid rgba(168, 124, 20, 0.25)', paddingLeft: '0.5rem', marginLeft: '0.15rem' }}>
-                      <span style={{ fontSize: '0.72rem', fontWeight: 800, color: 'var(--gold-800)', whiteSpace: 'nowrap' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem', borderLeft: '1.5px solid rgba(168, 124, 20, 0.25)', paddingLeft: '0.45rem', marginLeft: '0.15rem', flexShrink: 0 }}>
+                      <span style={{ fontSize: '0.7rem', fontWeight: 800, color: 'var(--gold-800)', whiteSpace: 'nowrap' }}>
                         Custom:
                       </span>
-                      <div style={{ display: 'flex', alignItems: 'center', background: '#FAF8F5', border: '1px solid rgba(168, 124, 20, 0.3)', borderRadius: '9999px', padding: '0.15rem 0.35rem' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', background: '#FAF8F5', border: '1px solid rgba(168, 124, 20, 0.3)', borderRadius: '9999px', padding: '0.12rem 0.3rem' }}>
                         <button
                           type="button"
                           onClick={() => {
@@ -528,7 +544,7 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
                         >
                           <ChevronLeft size={13} />
                         </button>
-                        <span style={{ fontSize: '0.76rem', fontWeight: 800, minWidth: '18px', textAlign: 'center', color: 'var(--text-main)' }}>
+                        <span style={{ fontSize: '0.74rem', fontWeight: 800, minWidth: '18px', textAlign: 'center', color: 'var(--text-main)' }}>
                           {guests}
                         </span>
                         <button
@@ -556,11 +572,11 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
                           alignItems: 'center',
                           justifyContent: 'center',
                           cursor: 'pointer',
-                          marginLeft: '0.2rem'
+                          marginLeft: '0.15rem'
                         }}
                         title="Confirm guests"
                       >
-                        <Check size={13} />
+                        <Check size={12} />
                       </button>
                     </div>
                   </>
@@ -579,10 +595,11 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
                           background: seatingZone === z.id ? 'var(--gold-100)' : '#FAF8F5',
                           color: seatingZone === z.id ? 'var(--gold-800)' : 'var(--text-main)',
                           borderRadius: '9999px',
-                          padding: '0.35rem 0.75rem',
-                          fontSize: '0.76rem',
+                          padding: '0.32rem 0.65rem',
+                          fontSize: '0.74rem',
                           fontWeight: seatingZone === z.id ? 800 : 600,
-                          cursor: 'pointer'
+                          cursor: 'pointer',
+                          flexShrink: 0
                         }}
                       >
                         {z.label}
@@ -617,7 +634,7 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
             <span>Heritage & Hospitality</span>
           </div>
 
-          <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', color: 'var(--text-main)', marginBottom: '0.75rem', fontWeight: 500 }}>
+          <h2 style={{ fontSize: 'clamp(1.85rem, 4vw, 3.2rem)', color: 'var(--text-main)', marginBottom: '0.75rem', fontWeight: 500 }}>
             About <span className="gold-gradient-text">L'Aura Grand Hotel & Estate</span>
           </h2>
           <p style={{ color: 'var(--text-sub)', fontSize: '0.94rem', maxWidth: '680px', margin: '0 auto', lineHeight: 1.65 }}>
@@ -625,12 +642,12 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
           </p>
         </div>
 
-        {/* 3. 4 CORE ESTATE HIGHLIGHTS */}
+        {/* 3. 4 CORE ESTATE HIGHLIGHTS (Responsive Grid) */}
         <div 
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '1.5rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gap: '1.25rem',
             marginBottom: '3.5rem'
           }}
         >
@@ -638,7 +655,7 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
           <div 
             className="luxury-card"
             style={{
-              padding: '2rem 1.5rem',
+              padding: '1.75rem 1.4rem',
               textAlign: 'center',
               display: 'flex',
               flexDirection: 'column',
@@ -649,8 +666,8 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
           >
             <div 
               style={{
-                width: '48px',
-                height: '48px',
+                width: '46px',
+                height: '46px',
                 borderRadius: '50%',
                 background: 'var(--gold-100)',
                 border: '1px solid var(--gold-500)',
@@ -658,12 +675,12 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: 'var(--gold-800)',
-                marginBottom: '1rem'
+                marginBottom: '0.85rem'
               }}
             >
-              <Building2 size={22} />
+              <Building2 size={20} />
             </div>
-            <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.4rem' }}>
+            <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.4rem' }}>
               84 Oceanfront Suites
             </h3>
             <p style={{ fontSize: '0.82rem', color: 'var(--text-sub)', lineHeight: 1.6 }}>
@@ -675,7 +692,7 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
           <div 
             className="luxury-card"
             style={{
-              padding: '2rem 1.5rem',
+              padding: '1.75rem 1.4rem',
               textAlign: 'center',
               display: 'flex',
               flexDirection: 'column',
@@ -686,8 +703,8 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
           >
             <div 
               style={{
-                width: '48px',
-                height: '48px',
+                width: '46px',
+                height: '46px',
                 borderRadius: '50%',
                 background: 'var(--gold-100)',
                 border: '1px solid var(--gold-500)',
@@ -695,12 +712,12 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: 'var(--gold-800)',
-                marginBottom: '1rem'
+                marginBottom: '0.85rem'
               }}
             >
-              <Star size={22} fill="#C29320" color="#C29320" />
+              <Star size={20} fill="#C29320" color="#C29320" />
             </div>
-            <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.4rem' }}>
+            <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.4rem' }}>
               3-Michelin Gastronomy
             </h3>
             <p style={{ fontSize: '0.82rem', color: 'var(--text-sub)', lineHeight: 1.6 }}>
@@ -712,7 +729,7 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
           <div 
             className="luxury-card"
             style={{
-              padding: '2rem 1.5rem',
+              padding: '1.75rem 1.4rem',
               textAlign: 'center',
               display: 'flex',
               flexDirection: 'column',
@@ -723,8 +740,8 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
           >
             <div 
               style={{
-                width: '48px',
-                height: '48px',
+                width: '46px',
+                height: '46px',
                 borderRadius: '50%',
                 background: 'var(--gold-100)',
                 border: '1px solid var(--gold-500)',
@@ -732,12 +749,12 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: 'var(--gold-800)',
-                marginBottom: '1rem'
+                marginBottom: '0.85rem'
               }}
             >
-              <Waves size={22} />
+              <Waves size={20} />
             </div>
-            <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.4rem' }}>
+            <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.4rem' }}>
               Ocean Thalasso Spa
             </h3>
             <p style={{ fontSize: '0.82rem', color: 'var(--text-sub)', lineHeight: 1.6 }}>
@@ -749,7 +766,7 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
           <div 
             className="luxury-card"
             style={{
-              padding: '2rem 1.5rem',
+              padding: '1.75rem 1.4rem',
               textAlign: 'center',
               display: 'flex',
               flexDirection: 'column',
@@ -760,8 +777,8 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
           >
             <div 
               style={{
-                width: '48px',
-                height: '48px',
+                width: '46px',
+                height: '46px',
                 borderRadius: '50%',
                 background: 'var(--gold-100)',
                 border: '1px solid var(--gold-500)',
@@ -769,12 +786,12 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: 'var(--gold-800)',
-                marginBottom: '1rem'
+                marginBottom: '0.85rem'
               }}
             >
-              <Compass size={22} />
+              <Compass size={20} />
             </div>
-            <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.4rem' }}>
+            <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.4rem' }}>
               Private Yacht & Helipad
             </h3>
             <p style={{ fontSize: '0.82rem', color: 'var(--text-sub)', lineHeight: 1.6 }}>
@@ -783,7 +800,7 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
           </div>
         </div>
 
-        {/* 4. SHORT KEY FACTS TICKER STRIP WITH SMOOTH ANIMATIONS & 5-POINT GOLD STARS */}
+        {/* 4. SHORT KEY FACTS TICKER STRIP (Responsive 2x2 on mobile, 4-col on desktop) */}
         <div 
           ref={tickerRef}
           className="luxury-glass"
@@ -791,10 +808,10 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
             background: 'linear-gradient(135deg, #FAF8F5 0%, #FFFFFF 50%, #FAF8F5 100%)',
             border: '1.5px solid rgba(168, 124, 20, 0.35)',
             borderRadius: '1.25rem',
-            padding: '2rem 2.5rem',
+            padding: '1.75rem 1.5rem',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-            gap: '2rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+            gap: '1.5rem',
             textAlign: 'center',
             boxShadow: '0 15px 40px rgba(20, 24, 33, 0.08), 0 0 20px rgba(184, 138, 27, 0.08)',
             position: 'relative',
@@ -824,16 +841,16 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
           >
             <div 
               className="gold-gradient-text"
-              style={{ fontFamily: 'var(--font-brand)', fontSize: '2.4rem', fontWeight: 800, lineHeight: 1.1 }}
+              style={{ fontFamily: 'var(--font-brand)', fontSize: 'clamp(1.75rem, 3.5vw, 2.4rem)', fontWeight: 800, lineHeight: 1.1 }}
             >
               {countYear}
             </div>
-            <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--text-sub)', fontWeight: 700, marginTop: '0.35rem' }}>
+            <div style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--text-sub)', fontWeight: 700, marginTop: '0.35rem' }}>
               Heritage Founded
             </div>
           </div>
 
-          {/* Metric 2: 3-Michelin Distinction (Classic 5-Point Gold Stars) */}
+          {/* Metric 2: 3-Michelin Distinction */}
           <div 
             style={{ transition: 'transform 0.3s ease', cursor: 'default' }}
             onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-3px)'}
@@ -844,8 +861,8 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
                 display: 'flex', 
                 alignItems: 'center', 
                 justifyContent: 'center', 
-                gap: '0.45rem', 
-                height: '42px'
+                gap: '0.35rem', 
+                height: '38px'
               }}
             >
               {[0, 1, 2].map((idx) => (
@@ -857,11 +874,11 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
                     transition: 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
                   }}
                 >
-                  <Star size={24} fill="#C29320" color="#C29320" />
+                  <Star size={20} fill="#C29320" color="#C29320" />
                 </div>
               ))}
             </div>
-            <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--text-sub)', fontWeight: 700, marginTop: '0.35rem' }}>
+            <div style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--text-sub)', fontWeight: 700, marginTop: '0.35rem' }}>
               3-Michelin Distinction
             </div>
           </div>
@@ -874,11 +891,11 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
           >
             <div 
               className="gold-gradient-text"
-              style={{ fontFamily: 'var(--font-brand)', fontSize: '2.4rem', fontWeight: 800, lineHeight: 1.1 }}
+              style={{ fontFamily: 'var(--font-brand)', fontSize: 'clamp(1.75rem, 3.5vw, 2.4rem)', fontWeight: 800, lineHeight: 1.1 }}
             >
               {countCellar.toLocaleString()}+
             </div>
-            <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--text-sub)', fontWeight: 700, marginTop: '0.35rem' }}>
+            <div style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--text-sub)', fontWeight: 700, marginTop: '0.35rem' }}>
               Grand Cru Cellar
             </div>
           </div>
@@ -891,11 +908,11 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
           >
             <div 
               className="gold-gradient-text"
-              style={{ fontFamily: 'var(--font-brand)', fontSize: '2.4rem', fontWeight: 800, lineHeight: 1.1 }}
+              style={{ fontFamily: 'var(--font-brand)', fontSize: 'clamp(1.75rem, 3.5vw, 2.4rem)', fontWeight: 800, lineHeight: 1.1 }}
             >
               #{countRank}
             </div>
-            <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--text-sub)', fontWeight: 700, marginTop: '0.35rem' }}>
+            <div style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--text-sub)', fontWeight: 700, marginTop: '0.35rem' }}>
               World's 50 Best
             </div>
           </div>

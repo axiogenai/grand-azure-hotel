@@ -49,6 +49,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -62,6 +63,8 @@ body {
   color: var(--text-main);
   line-height: 1.65;
   overflow-x: hidden;
+  width: 100%;
+  position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -77,12 +80,24 @@ h1, h2, h3, h4, .font-serif {
   letter-spacing: 0.12em;
 }
 
-/* Editorial Containers */
+/* Editorial Containers with Mobile Padding */
 .container-luxury {
   width: 100%;
   max-width: 1260px;
   margin: 0 auto;
   padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .container-luxury {
+    padding: 0 1.15rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-luxury {
+    padding: 0 0.85rem;
+  }
 }
 
 /* Refined Cards */
@@ -133,6 +148,7 @@ h1, h2, h3, h4, .font-serif {
   box-shadow: 0 4px 16px rgba(168, 124, 20, 0.3);
   transition: all 0.25s ease;
   letter-spacing: 0.03em;
+  touch-action: manipulation;
 }
 
 .btn-gold:hover {
@@ -153,6 +169,7 @@ h1, h2, h3, h4, .font-serif {
   justify-content: center;
   gap: 0.5rem;
   transition: all 0.25s ease;
+  touch-action: manipulation;
 }
 
 .btn-outline-gold:hover {
@@ -173,42 +190,11 @@ h1, h2, h3, h4, .font-serif {
   gap: 0.5rem;
   font-weight: 600;
   transition: all 0.2s ease;
+  touch-action: manipulation;
 }
 
 .btn-secondary:hover {
   background: #EAE5DB;
-}
-
-/* Shimmer */
-.shimmer-badge {
-  position: relative;
-  overflow: hidden;
-}
-
-.shimmer-badge::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    60deg,
-    transparent 20%,
-    rgba(255, 255, 255, 0.45) 50%,
-    transparent 80%
-  );
-  transform: rotate(30deg);
-  animation: shimmer 4s infinite linear;
-}
-
-@keyframes shimmer {
-  0% { transform: translateX(-100%) rotate(30deg); }
-  100% { transform: translateX(100%) rotate(30deg); }
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
 }
 
 /* Modals */
@@ -226,10 +212,17 @@ h1, h2, h3, h4, .font-serif {
   animation: fadeIn 0.2s ease-out;
 }
 
+@media (max-width: 640px) {
+  .modal-backdrop {
+    padding: 0.75rem;
+  }
+}
+
 .modal-content {
   max-height: 90vh;
   overflow-y: auto;
   animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
 }
 
 @keyframes fadeIn {
@@ -242,59 +235,37 @@ h1, h2, h3, h4, .font-serif {
   to { opacity: 1; transform: scale(1); }
 }
 
-/* Credit Card 3D Flip */
-.card-perspective {
-  perspective: 1000px;
+/* -------------------------------------------------------------
+   NAVBAR BULLETPROOF DESKTOP & MOBILE RESPONSIVE RULES
+------------------------------------------------------------- */
+.nav-center-links {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  white-space: nowrap;
 }
 
-.credit-card-flipper {
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+.nav-mobile-toggle-btn {
+  display: none !important;
 }
 
-.credit-card-flipper.flipped {
-  transform: rotateY(180deg);
+.nav-vip-btn {
+  display: inline-flex !important;
 }
 
-.card-front, .card-back {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+@media (max-width: 1024px) {
+  .nav-center-links {
+    display: none !important;
+  }
+  .nav-mobile-toggle-btn {
+    display: flex !important;
+  }
 }
 
-.card-back {
-  transform: rotateY(180deg);
-}
-
-/* Scratch Card Interactive Animations */
-@keyframes lightSweep {
-  0% { transform: translateX(-150%) rotate(25deg); opacity: 0; }
-  25% { opacity: 1; }
-  60% { transform: translateX(250%) rotate(25deg); opacity: 1; }
-  100% { transform: translateX(250%) rotate(25deg); opacity: 0; }
-}
-
-@keyframes coinWiggle {
-  0%, 100% { transform: scale(1) translateY(0); }
-  50% { transform: scale(1.06) translateY(-3px); }
-}
-
-@keyframes coinSpin {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(18deg); }
-  100% { transform: rotate(0deg); }
-}
-
-.animate-spin-slow {
-  animation: spin 8s linear infinite;
-}
-
-@keyframes coinScratchPath {
-  0% { transform: translate(-30px, 0) rotate(-15deg); }
-  25% { transform: translate(15px, -6px) rotate(12deg); }
-  50% { transform: translate(30px, 4px) rotate(-10deg); }
-  75% { transform: translate(-10px, 8px) rotate(8deg); }
-  100% { transform: translate(-30px, 0) rotate(-15deg); }
+@media (max-width: 600px) {
+  .nav-vip-btn {
+    display: none !important;
+  }
 }
 
 /* Custom Luxury Inner Scrollbars */
@@ -317,5 +288,11 @@ h1, h2, h3, h4, .font-serif {
   background: rgba(168, 124, 20, 0.65);
 }
 
-
-
+/* Smooth Touch Scroller without visible scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
