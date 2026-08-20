@@ -197,131 +197,54 @@ export function AboutSection({ onQuickReserve, onOpenReserve }) {
             margin: '-50px auto 3.5rem'
           }}
         >
-          <div 
-            style={{
-              background: '#FFFFFF',
-              border: '1.5px solid rgba(168, 124, 20, 0.45)',
-              borderRadius: '9999px',
-              padding: '0.5rem 0.65rem 0.5rem 1.1rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.45rem',
-              boxShadow: '0 22px 55px rgba(15, 23, 42, 0.13), 0 0 25px rgba(184, 138, 27, 0.12)',
-              flexWrap: 'wrap',
-              position: 'relative'
-            }}
-          >
-            {/* 1. Date Trigger Button */}
-            <button
-              type="button"
-              onClick={() => toggleBox('date')}
-              style={{
-                border: openBox === 'date' ? '1.5px solid var(--gold-600)' : '1px solid rgba(168, 124, 20, 0.25)',
-                background: openBox === 'date' ? 'var(--gold-100)' : '#FAF8F5',
-                borderRadius: '9999px',
-                padding: '0.4rem 0.75rem',
-                fontSize: '0.8rem',
-                fontWeight: 700,
-                color: 'var(--gold-800)',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.35rem',
-                transition: 'all 0.15s ease',
-                flexShrink: 0
-              }}
-            >
-              <Calendar size={13} />
-              <span>{date}</span>
-            </button>
+          <div className="booking-capsule">
+            {/* Scrollable pills container for Date, Time, Guests, and Seating */}
+            <div className="booking-pills-container no-scrollbar">
+              {/* 1. Date Trigger Button */}
+              <button
+                type="button"
+                onClick={() => toggleBox('date')}
+                className={`booking-pill ${openBox === 'date' ? 'active' : ''}`}
+              >
+                <Calendar size={13} />
+                <span>{date}</span>
+              </button>
 
-            {/* 2. Time Trigger Button */}
-            <button
-              type="button"
-              onClick={() => toggleBox('time')}
-              style={{
-                border: openBox === 'time' ? '1.5px solid var(--gold-600)' : '1px solid rgba(168, 124, 20, 0.25)',
-                background: openBox === 'time' ? 'var(--gold-100)' : '#FAF8F5',
-                borderRadius: '9999px',
-                padding: '0.4rem 0.75rem',
-                fontSize: '0.8rem',
-                fontWeight: 700,
-                color: 'var(--gold-800)',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.35rem',
-                transition: 'all 0.15s ease',
-                flexShrink: 0
-              }}
-            >
-              <Clock size={13} />
-              <span>{time}</span>
-            </button>
+              {/* 2. Time Trigger Button */}
+              <button
+                type="button"
+                onClick={() => toggleBox('time')}
+                className={`booking-pill ${openBox === 'time' ? 'active' : ''}`}
+              >
+                <Clock size={13} />
+                <span>{time}</span>
+              </button>
 
-            {/* 3. Guests Trigger Button */}
-            <button
-              type="button"
-              onClick={() => toggleBox('guests')}
-              style={{
-                border: openBox === 'guests' ? '1.5px solid var(--gold-600)' : '1px solid rgba(168, 124, 20, 0.25)',
-                background: openBox === 'guests' ? 'var(--gold-100)' : '#FAF8F5',
-                borderRadius: '9999px',
-                padding: '0.4rem 0.75rem',
-                fontSize: '0.8rem',
-                fontWeight: 700,
-                color: 'var(--gold-800)',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.35rem',
-                transition: 'all 0.15s ease',
-                flexShrink: 0
-              }}
-            >
-              <Users size={13} />
-              <span>{guests} {guests === 1 ? 'Guest' : 'Guests'}</span>
-            </button>
+              {/* 3. Guests Trigger Button */}
+              <button
+                type="button"
+                onClick={() => toggleBox('guests')}
+                className={`booking-pill ${openBox === 'guests' ? 'active' : ''}`}
+              >
+                <Users size={13} />
+                <span>{guests} {guests === 1 ? 'Guest' : 'Guests'}</span>
+              </button>
 
-            {/* 4. Seating Trigger Button */}
-            <button
-              type="button"
-              onClick={() => toggleBox('seating')}
-              style={{
-                border: openBox === 'seating' ? '1.5px solid var(--gold-600)' : '1px solid rgba(168, 124, 20, 0.25)',
-                background: openBox === 'seating' ? 'var(--gold-100)' : '#FAF8F5',
-                borderRadius: '9999px',
-                padding: '0.4rem 0.75rem',
-                fontSize: '0.8rem',
-                fontWeight: 700,
-                color: 'var(--gold-800)',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.35rem',
-                transition: 'all 0.15s ease',
-                flexShrink: 0
-              }}
-            >
-              <span>{seatingOptions.find(z => z.id === seatingZone)?.label}</span>
-            </button>
+              {/* 4. Seating Trigger Button */}
+              <button
+                type="button"
+                onClick={() => toggleBox('seating')}
+                className={`booking-pill ${openBox === 'seating' ? 'active' : ''}`}
+              >
+                <span>{seatingOptions.find(z => z.id === seatingZone)?.label}</span>
+              </button>
+            </div>
 
             {/* 5. Book Action Button */}
             <button 
               type="button"
               onClick={handleQuickSubmit}
-              className="btn-gold"
-              style={{ 
-                borderRadius: '9999px', 
-                padding: '0.48rem 1.25rem', 
-                fontSize: '0.82rem', 
-                display: 'flex', 
-                alignItems: 'center', 
-                gap: '0.35rem',
-                whiteSpace: 'nowrap',
-                flexShrink: 0
-              }}
+              className="btn-gold booking-book-btn"
             >
               <span>Book</span>
               <ArrowRight size={13} />

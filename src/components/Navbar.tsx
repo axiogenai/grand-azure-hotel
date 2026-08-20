@@ -6,10 +6,16 @@ import {
   Calendar, 
   Ticket
 } from 'lucide-react';
-import { MichelinRosette, LuxuryCrest } from './LuxuryIcons';
+import { MichelinRosette } from './LuxuryIcons';
 import { soundEffects } from '../utils/soundEffects';
 
-export function Navbar({ onOpenReserve, onOpenScratch, activeCoupon }) {
+interface NavbarProps {
+  onOpenReserve: () => void;
+  onOpenScratch: () => void;
+  activeCoupon: any;
+}
+
+export function Navbar({ onOpenReserve, onOpenScratch, activeCoupon }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -21,7 +27,7 @@ export function Navbar({ onOpenReserve, onOpenScratch, activeCoupon }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (e, targetId) => {
+  const handleNavClick = (e: React.MouseEvent, targetId: string) => {
     e.preventDefault();
     soundEffects.playClickSound();
     setIsMobileMenuOpen(false);
@@ -32,47 +38,27 @@ export function Navbar({ onOpenReserve, onOpenScratch, activeCoupon }) {
   };
 
   return (
-    <header 
-      style={{
-        position: 'fixed',
-        top: '0.75rem',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        width: '94%',
-        maxWidth: '1220px',
-        zIndex: 100,
-        transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
-      }}
-    >
+    <header className="navbar-header">
       {/* Floating Luxury Island Capsule Navbar */}
       <div 
+        className="navbar-capsule"
         style={{ 
-          background: isScrolled ? 'rgba(255, 255, 255, 0.97)' : 'rgba(255, 255, 255, 0.94)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          border: '1px solid rgba(168, 124, 20, 0.28)',
-          borderRadius: '9999px',
-          padding: '0.45rem 1.4rem',
+          background: isScrolled ? 'rgba(255, 255, 255, 0.98)' : 'rgba(255, 255, 255, 0.95)',
           boxShadow: isScrolled 
             ? '0 12px 35px rgba(20, 24, 33, 0.12), 0 2px 8px rgba(168, 124, 20, 0.1)' 
-            : '0 8px 30px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04)',
-          display: 'flex', 
-          alignItems: 'center', 
-          justifyContent: 'space-between',
-          minHeight: '52px',
-          gap: '1rem'
+            : '0 8px 30px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04)'
         }}
       >
         {/* Left: Brand Emblem & Name */}
         <a 
           href="#" 
-          style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.65rem', flexShrink: 0 }}
+          style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.45rem', flexShrink: 0 }}
           onClick={(e) => handleNavClick(e, 'hero')}
         >
           <div 
             style={{
-              width: '34px',
-              height: '34px',
+              width: '28px',
+              height: '28px',
               borderRadius: '50%',
               background: 'linear-gradient(135deg, #C29320 0%, #88640E 100%)',
               display: 'flex',
@@ -83,13 +69,13 @@ export function Navbar({ onOpenReserve, onOpenScratch, activeCoupon }) {
               flexShrink: 0
             }}
           >
-            <UtensilsCrossed size={16} />
+            <UtensilsCrossed size={14} />
           </div>
           <div>
-            <div style={{ fontFamily: 'var(--font-brand)', fontSize: '1.05rem', fontWeight: 800, letterSpacing: '0.12em', color: 'var(--text-main)', lineHeight: 1.1, whiteSpace: 'nowrap' }}>
+            <div className="nav-brand-title">
               L'AURA GRAND
             </div>
-            <div style={{ fontSize: '0.54rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--gold-700)', fontWeight: 700, whiteSpace: 'nowrap' }}>
+            <div className="nav-brand-stars">
               ★★★ 3 Michelin Stars
             </div>
           </div>
@@ -153,29 +139,29 @@ export function Navbar({ onOpenReserve, onOpenScratch, activeCoupon }) {
         </nav>
 
         {/* Right: Action Buttons */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', flexShrink: 0 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', flexShrink: 0 }}>
           {activeCoupon && (
             <div 
               style={{
                 background: 'var(--emerald-50)',
                 border: '1px solid var(--emerald-600)',
                 color: 'var(--emerald-700)',
-                padding: '0.28rem 0.65rem',
+                padding: '0.22rem 0.55rem',
                 borderRadius: '9999px',
-                fontSize: '0.7rem',
+                fontSize: '0.68rem',
                 fontWeight: 700,
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.3rem',
+                gap: '0.25rem',
                 whiteSpace: 'nowrap'
               }}
             >
-              <Ticket size={12} />
+              <Ticket size={11} />
               <span>{activeCoupon.uniqueCode}</span>
             </div>
           )}
 
-          {/* VIP Pass Button */}
+          {/* VIP Pass Button (Desktop Only) */}
           <button
             onClick={() => {
               soundEffects.playClickSound();
@@ -200,35 +186,19 @@ export function Navbar({ onOpenReserve, onOpenScratch, activeCoupon }) {
               soundEffects.playClickSound();
               onOpenReserve();
             }}
-            className="btn-gold"
-            style={{ 
-              padding: '0.35rem 1.05rem', 
-              fontSize: '0.76rem',
-              height: '34px',
-              whiteSpace: 'nowrap'
-            }}
+            className="btn-gold nav-book-btn"
           >
-            <Calendar size={13} />
+            <Calendar size={12} />
             <span>Book</span>
           </button>
 
-          {/* Mobile Menu Hamburger Toggle (Visible <= 1024px) */}
+          {/* Mobile Menu Hamburger Toggle (Visible <= 1024px, Always inside capsule) */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="nav-mobile-toggle-btn"
-            style={{
-              background: 'transparent',
-              border: 'none',
-              color: 'var(--text-main)',
-              cursor: 'pointer',
-              padding: '0.35rem',
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: '50%'
-            }}
             aria-label="Toggle navigation menu"
           >
-            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
       </div>
@@ -243,7 +213,7 @@ export function Navbar({ onOpenReserve, onOpenScratch, activeCoupon }) {
             WebkitBackdropFilter: 'blur(20px)',
             border: '1px solid rgba(168, 124, 20, 0.28)',
             borderRadius: '1.25rem',
-            padding: '1.25rem 1.5rem',
+            padding: '1.25rem 1.4rem',
             display: 'flex',
             flexDirection: 'column',
             gap: '0.85rem',
