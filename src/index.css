@@ -674,3 +674,71 @@ h1, h2, h3, h4, .font-serif {
     flex-shrink: 0 !important;
   }
 }
+
+/* -------------------------------------------------------------
+   PHYSICAL TICKET: RESPONSIVE TWO-PART PASS
+------------------------------------------------------------- */
+.physical-ticket {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  width: 100%;
+  max-width: 720px;
+  min-height: 270px;
+}
+
+.physical-ticket-left {
+  padding: 1.5rem 1rem;
+  border-right: 2px dashed rgba(212, 175, 55, 0.5);
+}
+
+.physical-ticket-right {
+  padding: 1.25rem 1.5rem;
+}
+
+.scratch-canvas-container {
+  height: 150px;
+}
+
+/* -------------------------------------------------------------
+   GLOBAL SMART MOBILE RESPONSIVE TUNING (<= 640px)
+------------------------------------------------------------- */
+@media (max-width: 640px) {
+  /* Stacking the physical ticket parts vertically on mobile */
+  .physical-ticket {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto auto !important;
+    min-height: auto !important;
+  }
+  
+  .physical-ticket-left {
+    border-right: none !important;
+    border-bottom: 2px dashed rgba(212, 175, 55, 0.5) !important;
+    padding: 1.25rem 1rem !important;
+  }
+  
+  .physical-ticket-right {
+    padding: 1.25rem 1rem !important;
+  }
+  
+  .scratch-canvas-container {
+    height: 140px !important;
+  }
+
+  /* Force single column layout on mobile for grids that have large minimum widths */
+  div[style*="minmax(340px"],
+  div[style*="minmax(320px"] {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+  
+  /* Make sure sections have clean compact padding */
+  section {
+    padding: 3rem 1rem !important;
+  }
+  
+  /* Make sure cards don't have hardcoded margins or fixed widths */
+  .luxury-card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}

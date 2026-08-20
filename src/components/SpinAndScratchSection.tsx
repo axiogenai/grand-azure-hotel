@@ -386,14 +386,12 @@ export function SpinAndScratchSection({ onApplyCouponToBooking, onGuestDetailsCa
         >
           {/* THE PHYSICAL LUXURY PASS (Two-Part Perforated Voucher) */}
           <div 
+            className="physical-ticket"
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={handleMouseLeave}
             onClick={!hasDetails ? handleTicketClick : undefined}
             style={{
-              width: '100%',
-              maxWidth: '720px',
-              minHeight: '270px',
               background: 'linear-gradient(135deg, #FAF8F5 0%, #FFFFFF 50%, #F5F1E9 100%)',
               border: '2px solid rgba(168, 124, 20, 0.45)',
               borderRadius: '1.25rem',
@@ -402,8 +400,6 @@ export function SpinAndScratchSection({ onApplyCouponToBooking, onGuestDetailsCa
                 : '0 15px 40px rgba(20, 24, 33, 0.12), 0 0 20px rgba(184, 138, 27, 0.18)',
               transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
               transition: isHovered ? 'transform 0.1s ease-out, box-shadow 0.3s ease' : 'transform 0.5s ease-out, box-shadow 0.3s ease',
-              display: 'grid',
-              gridTemplateColumns: 'minmax(140px, 1fr) 3fr',
               position: 'relative',
               overflow: 'hidden',
               cursor: hasDetails ? 'crosshair' : 'pointer'
@@ -423,17 +419,16 @@ export function SpinAndScratchSection({ onApplyCouponToBooking, onGuestDetailsCa
 
             {/* LEFT SECTION: Perforated Ticket Stub */}
             <div 
+              className="physical-ticket-left"
               style={{
                 background: 'linear-gradient(180deg, #14171F 0%, #1F293D 100%)',
                 color: '#FAF3DE',
-                padding: '1.5rem 1rem',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 textAlign: 'center',
-                position: 'relative',
-                borderRight: '2px dashed rgba(212, 175, 55, 0.5)'
+                position: 'relative'
               }}
             >
               {/* Semi-circle notch top & bottom for authentic physical ticket cut */}
@@ -511,8 +506,8 @@ export function SpinAndScratchSection({ onApplyCouponToBooking, onGuestDetailsCa
 
             {/* RIGHT SECTION: Main Scratch Foil & Security Window */}
             <div 
+              className="physical-ticket-right"
               style={{
-                padding: '1.25rem 1.5rem',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
@@ -540,10 +535,10 @@ export function SpinAndScratchSection({ onApplyCouponToBooking, onGuestDetailsCa
 
               {/* CENTRAL FOIL SCRATCH WINDOW */}
               <div 
+                className="scratch-canvas-container"
                 style={{
                   position: 'relative',
                   width: '100%',
-                  height: '150px',
                   borderRadius: '0.75rem',
                   overflow: 'hidden',
                   border: '2px solid #C29320',
