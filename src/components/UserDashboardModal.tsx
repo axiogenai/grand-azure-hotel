@@ -139,7 +139,7 @@ export function UserDashboardModal({
         </div>
 
         {/* Navigation Tabs */}
-        <div style={{ display: 'flex', gap: '0.6rem', marginBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '0.75rem' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', marginBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '0.75rem' }}>
           <button
             onClick={() => {
               soundEffects.playClickSound();

@@ -146,6 +146,13 @@ export function SpinAndScratchSection({ onApplyCouponToBooking, onGuestDetailsCa
     const canvas = canvasRef.current;
     if (!canvas) return;
 
+    const parent = canvas.parentElement;
+    if (parent) {
+      const rect = parent.getBoundingClientRect();
+      canvas.width = Math.floor(rect.width || 520);
+      canvas.height = Math.floor(rect.height || 150);
+    }
+
     const ctx = canvas.getContext('2d');
     const w = canvas.width;
     const h = canvas.height;
